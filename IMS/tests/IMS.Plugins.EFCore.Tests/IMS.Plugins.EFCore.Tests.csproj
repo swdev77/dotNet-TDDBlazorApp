@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.9" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="NSubstitute" Version="4.4.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -24,9 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\sources\IMS.Domain\IMS.Domain.csproj" />
     <ProjectReference Include="..\..\sources\IMS.Plugins.EFCore\IMS.Plugins.EFCore.csproj" />
-    <ProjectReference Include="..\..\sources\IMS.UseCases\IMS.UseCases.csproj" />
     <ProjectReference Include="..\IMS.TestFixture\IMS.TestFixture.csproj" />
   </ItemGroup>
 

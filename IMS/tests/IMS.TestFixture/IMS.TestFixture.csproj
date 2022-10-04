@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.9" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IMS.UseCases\IMS.UseCases.csproj" />
+    <ProjectReference Include="..\..\sources\IMS.Domain\IMS.Domain.csproj" />
+    <ProjectReference Include="..\..\sources\IMS.Plugins.EFCore\IMS.Plugins.EFCore.csproj" />
   </ItemGroup>
 
 </Project>
