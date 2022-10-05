@@ -14,4 +14,10 @@ public class IMSContext : DbContext
     {
     }
     public DbSet<Inventory> Inventories => Set<Inventory>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Inventory>().HasData(InventoryList.Make());
+        base.OnModelCreating(modelBuilder);
+    }
 }

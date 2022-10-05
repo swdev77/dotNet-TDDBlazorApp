@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMS.UseCases
 {
-    public class ViewInventoriesUseCase
+    public class ViewInventoriesUseCase : IViewInventoriesUseCase
     {
         private readonly IInventoryRepository repository;
 
@@ -18,7 +18,7 @@ namespace IMS.UseCases
         }
         public async Task<List<Inventory>> ExecuteAsynce(string name)
         {
-            return await repository.GetInventoriesByName(name); 
+            return await repository.GetInventoriesByName(name);
         }
     }
 }

@@ -13,9 +13,6 @@ namespace IMS.Plugins.EFCore.Tests
         public InventoryRepositoryTests()
         {
             context = IMSContextFixture.MakeIMSContext();
-            context.Inventories.AddRangeAsync(InventoryListFixture.MakeInventoryList());
-            context.SaveChangesAsync();
-
             repository = new InventoryRepository(context);
         }
 
@@ -39,7 +36,7 @@ namespace IMS.Plugins.EFCore.Tests
         public async void GetInventoryListByName_ShoudReturnInventories_WhenFound()
         {
             var result = await repository.GetInventoriesByName("Inventory");
-            result.Should().Contain(InventoryListFixture.MakeInventoryList());
+            result.Should().Contain(InventoryList.Make());
         }
 
         [Fact]

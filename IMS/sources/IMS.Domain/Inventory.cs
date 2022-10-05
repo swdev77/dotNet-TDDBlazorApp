@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace IMS.Domain;
 
-public record Inventory(int Id, string Name)
+public record Inventory(int Id, string Name, int Quantity, decimal Price)
 {
 }

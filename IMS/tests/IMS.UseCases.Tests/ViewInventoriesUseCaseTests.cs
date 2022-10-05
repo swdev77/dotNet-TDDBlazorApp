@@ -29,7 +29,7 @@ public class ViewInventoriesUseCaseTests
     public async void ShouldReturnAllInvetories_WhenSearchNameIsEmpty()
     {
         var result = await useCase.ExecuteAsynce(string.Empty);
-        result.Should().Contain(InventoryListFixture.MakeInventoryList());
+        result.Should().Contain(InventoryList.Make());
     }
 
     [Fact]
