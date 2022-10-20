@@ -1,6 +1,6 @@
 ﻿using IMS.Domain;
 
-namespace IMS.UseCases
+namespace IMS.UseCases.Interfaces
 {
     public interface IViewInventoriesUseCase
     {

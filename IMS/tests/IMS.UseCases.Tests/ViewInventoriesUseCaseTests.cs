@@ -29,7 +29,7 @@ public class ViewInventoriesUseCaseTests
     public async void ShouldReturnAllInvetories_WhenSearchNameIsEmpty()
     {
         var result = await useCase.ExecuteAsynce(string.Empty);
-        result.Should().Contain(InventoryList.Make());
+        result.Should().HaveCount(InventoryList.Make().Count());
     }
 
     [Fact]
@@ -42,8 +42,8 @@ public class ViewInventoriesUseCaseTests
     [Fact]
     public async void ShouldReturnInventory_WhenSearchNameIsValid()
     {
-        var result = await useCase.ExecuteAsynce("Inventory 1");
-        result.Should().ContainSingle(x => x.Name == "Inventory 1");
+        var result = await useCase.ExecuteAsynce("Engine");
+        result.Should().ContainSingle(x => x.Name == "Engine");
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using IMS.Domain;
+using IMS.UseCases.Interfaces;
 using IMS.UseCases.PluginInterfaces;
 using System;
 using System.Collections.Generic;

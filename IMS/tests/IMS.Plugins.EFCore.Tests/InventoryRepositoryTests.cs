@@ -21,7 +21,7 @@ namespace IMS.Plugins.EFCore.Tests
         {
             
             var result = await repository.GetInventoriesByName(string.Empty);
-            result.Should().HaveCount(3);
+            result.Should().HaveCount(InventoryList.Make().Count);
         }
 
         [Fact]
@@ -31,19 +31,11 @@ namespace IMS.Plugins.EFCore.Tests
             var result = await repository.GetInventoriesByName("Nothing");
             result.Should().BeEmpty();
         }
-
-        [Fact]
-        public async void GetInventoryListByName_ShoudReturnInventories_WhenFound()
-        {
-            var result = await repository.GetInventoriesByName("Inventory");
-            result.Should().Contain(InventoryList.Make());
-        }
-
         [Fact]
         public async void GetInventoryListByName_ShouldReturnInventory_WhenInventoryFound()
         {
-            var result = await repository.GetInventoriesByName("Inventory 1");
-            result.Should().ContainSingle(x => x.Name == "Inventory 1");
+            var result = await repository.GetInventoriesByName("Engine");
+            result.Should().ContainSingle(x => x.Name == "Engine");
         }
     }
 }

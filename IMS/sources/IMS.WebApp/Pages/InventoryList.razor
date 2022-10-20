@@ -1,5 +1,8 @@
 ﻿@page "/inventories"
 
+@inject NavigationManager NavigationManager
+@inject IViewInventoriesUseCase ViewInventoriesUseCase 
+
 <h3>InventoryList</h3>
 <br />
 <ViewInventoriesComponent 
@@ -24,18 +27,38 @@
                     <td>@inventory.Name</td>
                     <td>@inventory.Quantity</td>
                     <td>@inventory.Price.ToString("c")</td>
-                    <td><button type="button" class="btn btn-light">Edit</button></td>
+                    <td><button type="button" class="btn btn-light" @onclick="@(()=> EditInventory(inventory.Id))">Edit</button></td>
                 </tr>
             }
         </tbody>
     </table>
 }
 
+<br />
+
+<button type="button" class="btn btn-primary" @onclick="AddInventory">Add Inventory</button> 
+
 @code {
     private List<Inventory>? _inventories;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var invs = await ViewInventoriesUseCase.ExecuteAsynce(string.Empty);
+        _inventories = invs.ToList();
+    }
 
     private void OnSearchInventories(List<Inventory> inventories)
     {
         _inventories = inventories;
+    }
+
+    private void AddInventory()
+    {
+        NavigationManager.NavigateTo("/addinventory");
+    }
+
+    private void EditInventory(int invId)
+    {
+        NavigationManager.NavigateTo($"/editinventory/{invId}");
     }
 }
