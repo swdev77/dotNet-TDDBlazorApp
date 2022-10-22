@@ -2,7 +2,7 @@
 using IMS.UseCases.Interfaces;
 using IMS.UseCases.PluginInterfaces;
 
-namespace IMS.UseCases;
+namespace IMS.UseCases.Inventories;
 
 public class EditInventoryUseCase : IEditInventoryUseCase
 {
@@ -14,6 +14,6 @@ public class EditInventoryUseCase : IEditInventoryUseCase
     }
     public async Task ExecuteAsync(Inventory inventory)
     {
-        await this.repository.UpdateInventoryAsync(inventory);
+        await repository.UpdateInventoryAsync(inventory);
     }
 }

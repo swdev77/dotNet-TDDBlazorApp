@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using IMS.Domain;
 using IMS.Plugins.EFCore;
 using IMS.TestFixture;
-using IMS.UseCases;
+using IMS.UseCases.Inventories;
 using IMS.UseCases.PluginInterfaces;
 
 namespace IMS.UseCases.Tests;

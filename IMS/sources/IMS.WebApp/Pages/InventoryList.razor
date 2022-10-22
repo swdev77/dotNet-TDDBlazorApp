@@ -9,7 +9,7 @@
     OnSearchInventories="OnSearchInventories">
 </ViewInventoriesComponent>
 
-@if(_inventories != null )
+@if(listInventories != null )
 {
     <table class="table">
         <thead>
@@ -21,14 +21,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var inventory in _inventories)
+            @foreach(var inventory in listInventories)
             {
-                <tr>
-                    <td>@inventory.Name</td>
-                    <td>@inventory.Quantity</td>
-                    <td>@inventory.Price.ToString("c")</td>
-                    <td><button type="button" class="btn btn-light" @onclick="@(()=> EditInventory(inventory.Id))">Edit</button></td>
-                </tr>
+                <InventoryItemComponent Inventory="inventory"></InventoryItemComponent>
             }
         </tbody>
     </table>
@@ -39,17 +34,17 @@
 <button type="button" class="btn btn-primary" @onclick="AddInventory">Add Inventory</button> 
 
 @code {
-    private List<Inventory>? _inventories;
+    private List<Inventory>? listInventories;
 
     protected override async Task OnInitializedAsync()
     {
         var invs = await ViewInventoriesUseCase.ExecuteAsynce(string.Empty);
-        _inventories = invs.ToList();
+        listInventories = invs.ToList();
     }
 
     private void OnSearchInventories(List<Inventory> inventories)
     {
-        _inventories = inventories;
+        listInventories = inventories;
     }
 
     private void AddInventory()
